@@ -10,20 +10,39 @@ namespace HelloMe
     {
         static void Main(string[] args)
         {
-            // Write a program that asks for 5 integers in a row,
-            // then it should print the sum and the average of these numbers like:
-            //
-            // Sum: 22, Average: 4.4
+            Console.WriteLine("How much my friend?");
+            int x = int.Parse(Console.ReadLine());
+            int charPerLine = (x * 2) - 1;
 
-            int a = int.Parse(Console.ReadLine());
-            int b = int.Parse(Console.ReadLine());
-            int c = int.Parse(Console.ReadLine());
-            int d = int.Parse(Console.ReadLine());
-            int e = int.Parse(Console.ReadLine());
-            double sum = a + b + c + d + e;
-            Console.WriteLine("Sum: " + sum + ", Average: " + (sum/5) );
+            for (int i = 0; i <= x; i++)
+            {
+                int spaces = (charPerLine / 2) - i;
+                while (spaces > 0)
+                {
+                    Console.Write(" ");
+                    spaces--;
+                }
+                int stars = (i * 2) - 1;
+
+                while (stars > 0)
+                {
+                    Console.Write("*");
+                    stars--;
+                }
+                int spaces2 = (charPerLine / 2) - i;
+                while (spaces2 > 0)
+                {
+                    Console.Write(" ");
+                    spaces2--;
+
+
+                }
+                Console.Write("\n");
+
+            }
+
             Console.ReadLine();
         }
-
     }
 }
+
