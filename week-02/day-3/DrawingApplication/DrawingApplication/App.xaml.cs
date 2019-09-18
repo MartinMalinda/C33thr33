@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Markup.Xaml;
 
-namespace Drawing
+namespace DrawingApplication
 {
     public class App : Application
     {

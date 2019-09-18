@@ -1,10 +1,8 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Logging.Serilog;
-using Drawing.ViewModels;
-using Drawing.Views;
 
-namespace Drawing
+namespace DrawingApplication
 {
     class Program
     {
@@ -17,19 +15,14 @@ namespace Drawing
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .LogToDebug()
-                .UseReactiveUI();
+                .LogToDebug();
 
         // Your application's entry point. Here you can initialize your MVVM framework, DI
         // container, etc.
         private static void AppMain(Application app, string[] args)
         {
-            var window = new MainWindow
-            {
-                DataContext = new MainWindowViewModel(),
-            };
-
-            app.Run(window);
+            app.Run(new MainWindow());
         }
+       
     }
 }
