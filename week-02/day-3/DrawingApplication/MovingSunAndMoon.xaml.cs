@@ -64,7 +64,7 @@ namespace DrawingApplication
                 {
                     DrawMoon(foxDraw, 100 + ((hour + 5) * 50), 100 + ((hour - 1) * 50));
                 }
-                
+
             }
 
 
