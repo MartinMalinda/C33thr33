@@ -21,59 +21,77 @@ namespace DrawingApplication
 
             canvas.Width = 800;
             canvas.Height = 800;
-            foxDraw.SetBackgroundColor(Colors.LightBlue);
+            string timeNow = DateTime.Now.ToString("HH:mm");
+            Random random = new Random();
+            string hours = string.Join("", timeNow[0], timeNow[1]);
+           // int hour = int.Parse(hours);       // getting current time into integer
+           int hour = 23;                       // sets time manually
+            if (hour > 7 && hour < 20)
+            {
+                foxDraw.SetBackgroundColor(Colors.LightBlue);
+                if (hour <= 13)
+                {
+                    DrawSun(foxDraw, 100 + ((hour - 7) * 50), 500 - ((hour - 7) * 50));
+
+                }
+                else
+                {
+                    DrawSun(foxDraw, 100 + ((hour - 7) * 50), 100 + ((hour - 13) * 50));
+                }
+
+
+            }
+            else
+            {
+                foxDraw.SetBackgroundColor(Colors.Black);
+                for (int i = 0; i < random.Next(100,200); i++)
+                {
+                    foxDraw.SetStrokeColor(Colors.Yellow);
+                    foxDraw.DrawRectangle(random.Next(0, 800), random.Next(0, 800), 3, 3);
+                }
+                foxDraw.SetStrokeColor(Colors.Transparent);
+
+                if (hour >= 20 && hour <= 23)
+                {
+                    DrawMoon(foxDraw, 100 + ((hour - 19) * 50), 500 - ((hour - 19) * 50));
+
+                }
+                else if (hour < 2)
+                {
+                    DrawMoon(foxDraw, 100 + ((hour + 5) * 50), 500 - ((hour + 5) * 50));
+                }
+                else
+                {
+                    DrawMoon(foxDraw, 100 + ((hour + 5) * 50), 100 + ((hour - 1) * 50));
+                }
+
+            }
+            if (true)
+            {
+
+            }
+
+
+        }
+        public void DrawSun(FoxDraw foxDraw, int x, int y)
+        {
+            foxDraw.SetStrokeColor(Colors.Yellow);
+            foxDraw.SetFillColor(Colors.Yellow);
+            foxDraw.DrawEllipse(x - 50, y - 50, 100, 100);
+            foxDraw.DrawLine(x - 80, y, x + 80, y);
+            foxDraw.DrawLine(x, y + 80, x, y - 80);
+            foxDraw.DrawLine(x - 65, y + 65, x + 65, y - 65);
+            foxDraw.DrawLine(x - 65, y - 65, x + 65, y + 65);
+
+        }
+        public void DrawMoon(FoxDraw foxDraw, int x, int y)
+        {
+            foxDraw.SetStrokeColor(Colors.Silver);
+            foxDraw.SetFillColor(Colors.Silver);
+            foxDraw.DrawEllipse(x - 50, y - 50, 100, 100);
             foxDraw.SetStrokeColor(Colors.Black);
-            foxDraw.SetStrokeThicknes(1);
-
-            UpShape(foxDraw, (Width / 2), (Height / 2) - 140);  //first line
-
-            for (int w = -30; w <= 30; w = w + 60)      // second line
-            {
-                UpShape(foxDraw, (Width / 2) + w, (Height / 2) - 120);
-            }
-
-            for (int w = -60; w <= 60; w = w + 60)      // third line copied multiple times
-            {
-                for (int h = -60; h <= 100; h = h + 40)
-                {
-                    UpShape(foxDraw, (Width / 2) + w, (Height / 2) - h);
-                }
-            }
-
-            for (int h = -80; h < 80; h = h + 40)   //middle part
-            {
-                for (int w = -90; w <= 90; w = w + 60)
-                {
-                    UpShape(foxDraw, (Width / 2) + w, (Height / 2) + h);
-                    DownShape(foxDraw, (Width / 2) + w, ((Height / 2) + h) + 40);
-                }
-            }
-
-            for (int w = -60; w <= 60; w = w + 60)      // third to last
-            {
-                DownShape(foxDraw, (Width / 2) + w, (Height / 2) + 100);
-            }
-
-            for (int w = -30; w <= 30; w = w + 60)      // second to last
-            {
-                DownShape(foxDraw, (Width / 2) + w, (Height / 2) + 120);
-            }
-
-            DownShape(foxDraw, (Width / 2), (Height / 2) + 140);  //last line 
-        }
-        public void UpShape(FoxDraw foxDraw, double x, double y)
-        {
-            foxDraw.DrawLine(x - 20, y + 20, x - 10, y);
-            foxDraw.DrawLine(x + 10, y, x - 10, y);
-            foxDraw.DrawLine(x + 10, y, x + 20, y + 20);
-
-        }
-        public void DownShape(FoxDraw foxDraw, double x, double y)
-        {
-            foxDraw.DrawLine(x - 20, y - 20, x - 10, y);
-            foxDraw.DrawLine(x + 10, y, x - 10, y);
-            foxDraw.DrawLine(x + 10, y, x + 20, y - 20);
-
+            foxDraw.SetFillColor(Colors.Black);
+            foxDraw.DrawEllipse(x - 100, y - 60, 120, 120);
         }
         private void InitializeComponent()
         {
