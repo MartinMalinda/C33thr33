@@ -45,9 +45,12 @@
   <ItemGroup>
     <Compile Include="Animal.cs" />
     <Compile Include="Counter.cs" />
+    <Compile Include="DiceSet.cs" />
     <Compile Include="Fleet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="Teacher.cs" />
     <Compile Include="Thing.cs" />
   </ItemGroup>
   <ItemGroup>
