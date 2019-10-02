@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Inheritance
 {
-    public enum Experience { Junior, Intermediate, Senior};
+    public enum Experience { Junior, Intermediate, Senior };
+
     class Program
     {
         static void Main(string[] args)
@@ -21,6 +22,8 @@ namespace Inheritance
             people.Add(jane);
             var john = new Student("John Doe", 20, "male", "BME");
             people.Add(john);
+            var johnTheClone = john.Clone() as Student;
+            people.Add(johnTheClone);
             var student = new Student();
             people.Add(student);
             var gandhi = new Mentor("Gandhi", 148, "male", Experience.Senior);

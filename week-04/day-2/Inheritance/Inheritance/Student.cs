@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Inheritance
 {
-    class Student : Person
+    class Student : Person, ICloneable
     {
         public string PreviousOrganization { get; private set; } = "The School of Life";
         private int skippedDays = 0;
@@ -37,6 +37,13 @@ namespace Inheritance
         {
             skippedDays = skippedDays + numberOfDays;
         }
+
+        public object Clone()
+        {
+            return new Student(Name, Age, Gender, PreviousOrganization);
+        }
+
+        
 
     }
 }

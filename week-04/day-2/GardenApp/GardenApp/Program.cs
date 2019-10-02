@@ -12,4 +12,11 @@ namespace GardenApp
         {
         }
     }
+
+
+    public class Flora
+    {
+        public string Color { get; private set; }
+        public int WaterLevel { get; private set; }
+    }
 }
