@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PirateMr", "PirateMr\PirateMr.csproj", "{8AAFE827-C40F-4393-B27A-769B89FEE1B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{EBEBC1A1-5A23-486D-AE12-0AEA1CD910D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AAFE827-C40F-4393-B27A-769B89FEE1B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAFE827-C40F-4393-B27A-769B89FEE1B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAFE827-C40F-4393-B27A-769B89FEE1B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAFE827-C40F-4393-B27A-769B89FEE1B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBEBC1A1-5A23-486D-AE12-0AEA1CD910D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBEBC1A1-5A23-486D-AE12-0AEA1CD910D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBEBC1A1-5A23-486D-AE12-0AEA1CD910D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBEBC1A1-5A23-486D-AE12-0AEA1CD910D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {167BDFF6-DF01-4A13-9AC3-1D8128A08094}
+	EndGlobalSection
+EndGlobal
