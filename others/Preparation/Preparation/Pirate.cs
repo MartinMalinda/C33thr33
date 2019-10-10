@@ -9,61 +9,58 @@ namespace Preparation
     class Pirate
     {
         public static Random random = new Random();
-        int hp = 100;
-        public int HP
+        public int HP { get; private set; } = 100;
+        public string Name { get; set; }
+
+        private int xp = 0;
+        public int XP
         {
-            get
-            {
-                return hp;
-            }
+            get { return xp; }
             set
             {
-                if (value <= 0 || value > 100)
+                if (value/100 != xp/100)
                 {
-                    hp = value;
+                    HP += 33;
                 }
-                else
-                {
-                    hp = 100;
-                }
+                xp = value;
             }
         }
-        public string Name { get; set; }
-        private int xp;
+        //public int XP { get; set; }
+        public bool isDead { get; private set; } = false;
 
-        public Pirate(string name, int hp, int xp)
+        public Pirate(string name, int hp, int XP)
         {
             Name = name;
             HP = hp;
-            this.xp = xp;
+            this.XP = XP;
         }
 
         public Pirate()
         {
             Name = "Pirate" + random.Next(0, 100).ToString();
             HP = 100;
-            xp = 0;
+            XP = random.Next(0, 33);
         }
 
         public void DrinkSomeRum()
         {
-            if (HP < 1)
+            if (isDead)
             {
-                Console.WriteLine("He is dead");
+                Console.WriteLine($"{Name}  is dead");
             }
             else
             {
-                HP = HP + 5;
-                xp++;
+                HP = HP + ((XP/10)*3);
+                XP++;
                 Console.WriteLine($"{Name} drank some rum");
             }
         }
 
         public void HowsItGoingMate()
         {
-            if (HP < 1)
+            if (isDead)
             {
-                Console.WriteLine("He is dead");
+                Console.WriteLine($"{Name}  is dead");
             }
             else if (HP < 100)
             {
@@ -72,51 +69,55 @@ namespace Preparation
             else
             {
                 Console.WriteLine("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
-                xp++;
+                XP++;
             }
         }
         public void Report()
         {
-            if (HP<1)
+            if (isDead)
             {
-                Console.WriteLine("Ima dead mate");
+                Console.WriteLine($" I used to be {Name} but now ima dead mate");
             }
             else
             {
-                Console.WriteLine($"Ahoy! My name is {Name}, I am lvl {xp / 10} pirate. My HP is currently {HP}");
+                Console.WriteLine($"Ahoy! My name is {Name}, I am lvl {XP/10} pirate. My HP is currently {HP}");
             }
         }
+
         public void Die()
         {
             HP = 0;
+            isDead = true;
         }
 
         public void Brawl(Pirate enemy)
         {
-            if (HP < 1)
+            if (isDead || enemy.isDead)
             {
                 Console.WriteLine("Dead pirates cannot fight!");
             }
             else
             {
                 Console.WriteLine($"{Name} and {enemy.Name} are fighting!");
-                enemy.HP = enemy.HP - (random.Next(35, 65) - (xp / 10));
-                HP = HP - (random.Next(35, 60) - (enemy.xp / 10));
+                enemy.HP = enemy.HP - (random.Next(35, 55) - (XP / 10));
+                HP = HP - (random.Next(30, 55) - (enemy.XP / 10));
                 if (HP < 1)
                 {
-                    enemy.xp += (xp / 2) + 50;
+                    enemy.XP += (XP / 2) + 50;
+                    isDead = true;
                 }
                 else
                 {
-                    enemy.xp += (xp / 4) + 20;
+                    enemy.XP += (XP / 4) + 20;
                 }
                 if (enemy.HP < 1)
                 {
-                    xp += (enemy.xp / 2) + 50;
+                    XP += (enemy.XP / 2) + 50;
+                    enemy.isDead = true;
                 }
                 else
                 {
-                    xp += (enemy.xp / 4) + 20;
+                    XP += (enemy.XP / 4) + 20;
                 }
 
             }
