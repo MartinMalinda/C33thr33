@@ -88,5 +88,20 @@ namespace Preparation
             }
             return score;
         }
+        public void AssignCaptain()
+        {
+            int indexOfCaptain = 0;
+            int maxXP = 0;
+            for (int i = 0; i < ListOfPirates.Count; i++)
+            {
+                if (ListOfPirates[i].XP>maxXP)
+                {
+                    indexOfCaptain = i;
+                    maxXP = ListOfPirates[i].XP;
+                }
+            }
+            Console.WriteLine($" Captain of {Name} is {ListOfPirates[indexOfCaptain].Name} " +
+                $"because he has the most experience ({ListOfPirates[indexOfCaptain].XP})");
+        }
     }
 }

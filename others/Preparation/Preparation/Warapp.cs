@@ -43,6 +43,8 @@ namespace Preparation
             Console.WriteLine();
             BlackPearl.Battle(shipOne);
             Console.WriteLine();
+            BlackPearl.AssignCaptain();
+            Console.WriteLine();
             BlackPearl.ShipReport();
             Console.WriteLine();
             shipOne.ShipReport();
