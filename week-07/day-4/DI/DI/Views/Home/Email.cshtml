@@ -1,0 +1,18 @@
+﻿
+@model List<string>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Email</title>
+    </head>
+    <body>
+        <style>
+            body {
+                color: @Model[1];
+                
+            }
+        </style>
+        @Model[0]
+    </body>
+</html>
+
