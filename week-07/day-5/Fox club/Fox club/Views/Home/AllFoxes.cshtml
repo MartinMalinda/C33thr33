@@ -1,0 +1,9 @@
+﻿@using Foxclub.Models;
+
+@model LoFService
+
+List of all foxes: @foreach (var item in Model.ListAllFoxes())
+{
+    @item.name 
+}
+
