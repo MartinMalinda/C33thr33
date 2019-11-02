@@ -1,0 +1,54 @@
+﻿
+@using Bank.Models;
+
+@model List<BankAccount>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bank account info</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Occupation</td>
+                <td>Balance</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BankAccount item in @Model)
+            {
+                <tr>
+                    @if (item.BadGuy)
+                    {
+                        <td class="bad">@Model.IndexOf(item)</td>
+                        <td class="bad">@item.Name</td>
+                        <td class="bad">@item.Occupation</td"bad">
+                        <td class="bad">@String.Format("{0:0.00}", item.Balance) CZK</td>
+                    }
+                    else
+                    {
+                        <td>@Model.IndexOf(item)</td>
+                        <td>@item.Name</td>
+                        <td>@item.Occupation</td>
+                        <td>@String.Format("{0:0.00}", item.Balance) CZK</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+    <form action="CreateNew" method="post">
+        <label>Name: <input type="text" name="Name" placeholder="What is your name?" /> </label> <br />
+        <label>Occupation: <input type="text" name="Occupation" placeholder="What do you do?" /> </label> <br />
+        <label>Balance: <input type="text" name="Balance" placeholder="How much money do you have?" /> </label> <br />
+        <label>Are you a bad person? <input type="Checkbox" name="badGuy" value="true " /> </label> <br />
+        <button type="submit">Hereby I declare the above is truth</button>
+    </form>
+</body>
+</html>
+
+

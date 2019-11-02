@@ -1,0 +1,42 @@
+﻿
+@using Foxclub.Models;
+
+@model Fox;
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Information</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="https://localhost:44383/login">Back to login</a></li>
+            <li><a>@Html.ActionLink("nutrition", "home", new { name = Model.name })</a></li>
+            <li><a href="">Trick Center</a>@Html.ActionLink("tricks", "home", new { name = Model.name })</li>
+            <li><a href="">Action History</a></li>
+        </ul>
+    </header>
+    <div>
+        <img src="~/images/greenfox.png" alt="Little green fox" height="150" width="150">
+    </div>
+    <div>
+        This is @Model.name. Currently living on @Model.food and @Model.drink.
+    </div>
+    <h1>Known tricks</h1>
+    @if (Model.ListOfTricks.Count == 0)
+    {
+        <p>He knows nothing John Snow.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var item in Model.ListOfTricks)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    }
+</body>
+
+</html>
+
